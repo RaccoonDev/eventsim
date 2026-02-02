@@ -276,3 +276,20 @@ To build the executable, run
     $ sbt assembly
     $ # make sure the script is executable
     $ chmod +x bin/eventsim
+
+
+Running in Docker
+=================
+
+To build the image you can run:
+
+```
+docker build -t eventsim .
+```
+
+To test the container in a local folder:
+
+```
+docker run -it --rm -v "$(pwd):/app/output/" eventsim -c "examples/example-config.json" --from 365 --nusers 1000 --growth-rate 0.01 output/fake.json
+```
+
